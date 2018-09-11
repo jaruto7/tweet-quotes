@@ -10,15 +10,6 @@ function getQuote() {
         .then( createTweet );
 }
 
-document.addEventListener( 'DOMContentLoaded', function() {
-    console.log('test1');
-    getQuote();
-    document.querySelector( '.trigger' ).addEventListener( 'click', function() {
-        console.log('test2');
-        getQuote();
-    });
-});
-
 function createTweet( input ) {
     var data = input[0];
 
@@ -28,6 +19,15 @@ function createTweet( input ) {
     var quoteText = dataElement.innerHTML.trim();
     var quoteAuthor = data.title;
     var tweetText = 'Quote of the day - ' + quoteText + ' Author: ' + quoteAuthor;
+
+    document.addEventListener( 'DOMContentLoaded', function() {
+        console.log('test1');
+        getQuote();
+        document.querySelector( '.trigger' ).addEventListener( 'click', function() {
+            console.log('test2');
+            getQuote();
+        });
+    });
 
     if ( !quoteAuthor.length ) {
         quoteAuthor = 'Unknown author';

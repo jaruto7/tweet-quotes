@@ -11,7 +11,7 @@ function getQuote() {
 }
 
 document.addEventListener( 'DOMContentLoaded', function() {
-    console.log('test1')
+    console.log('test1');
     getQuote();
     document.querySelector( '.trigger' ).addEventListener( 'click', function() {
         console.log('test2');

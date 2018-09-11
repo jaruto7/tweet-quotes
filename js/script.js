@@ -10,6 +10,15 @@ function getQuote() {
         .then( createTweet );
 }
 
+document.addEventListener( 'DOMContentLoaded', function() {
+    console.log('test1')
+    getQuote();
+    document.querySelector( '.trigger' ).addEventListener( 'click', function() {
+        console.log('test2');
+        getQuote();
+    });
+});
+
 function createTweet( input ) {
     var data = input[0];
 
@@ -32,13 +41,5 @@ function createTweet( input ) {
         document.querySelector( '.quote' ).innerText = quoteText;
         document.querySelector( '.author' ).innerText = 'Author: ' + quoteAuthor;
         document.querySelector( '.tweet' ).setAttribute( 'href', tweet );
-    
-        document.addEventListener( 'DOMContentLoaded', function() {
-            getQuote();
-            document.querySelector( '.trigger' ).addEventListener( 'click', function() {
-                console.log('test');
-                getQuote();
-            });
-        });
     }
 }

@@ -14,9 +14,8 @@ function createTweet( input ) {
     var data = input[0];
 
     var dataElement = document.createElement( 'div' );
-    dataElement.innerHTML = data.content;
     // console.log(dataElement);
-    var quoteText = dataElement.innerHTML.trim();
+    var quoteText = data.content.trim();
     var quoteAuthor = data.title;
     var tweetText = 'Quote of the day - ' + quoteText + ' Author: ' + quoteAuthor;
 
@@ -29,7 +28,7 @@ function createTweet( input ) {
     } else {
         var tweet = tweetLink + encodeURIComponent( tweetText );
         console.log(tweetText);
-        document.querySelector( '.quote' ).innerText = quoteText;
+        document.querySelector( '.quote' ).innerHTML = quoteText;
         document.querySelector( '.author' ).innerText = 'Author: ' + quoteAuthor;
         document.querySelector( '.tweet' ).setAttribute( 'href', tweet );
     }
